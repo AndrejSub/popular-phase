@@ -7,4 +7,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://andrejsub.github.io/',
+  base: 'popular-phase',
 });
