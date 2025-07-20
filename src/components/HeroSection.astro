@@ -5,7 +5,7 @@ import Blesk from "../assets/blesk.svg";
 import FeaturesSection from "./FeaturesSection.astro";
 ---
 
-<section class="relative w-full min-h-screen overflow-hidden">
+<section class="relative pt-25 md:pt-0 w-full min-h-screen overflow-hidden">
   <div class="absolute inset-0 %"></div>
 
   <div
@@ -18,7 +18,9 @@ import FeaturesSection from "./FeaturesSection.astro";
         class="text-6xl md:text-8xl font-montserrat text-slate-900 leading-tight"
       >
         <span class="font-bold">Buďte viditeľní</span> tak ako nikde inde!
-        <span class="inline-block"><img class="pb-5" src={Blesk.src} /></span>
+        <span class="hidden md:inline-block"
+          ><img class="pb-5 size-14" src={Blesk.src} /></span
+        >
       </h1>
       <div class="mt-10 flex justify-center md:justify-start">
         <Button
@@ -33,7 +35,7 @@ import FeaturesSection from "./FeaturesSection.astro";
       <img
         src={PhoneMockup.src}
         alt="Aplikácia v mobile - popredie"
-        class="absolute w-96 pt-10 md:w-[38rem] max-w-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+        class="hidden md:absolute w-96 pt-10 md:w-[38rem] max-w-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
       />
     </div>
   </div>
