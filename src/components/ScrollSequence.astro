@@ -1,0 +1,106 @@
+---
+// src/components/ScrollSequence.astro
+---
+
+<section class="scroll-sequence-container min-h-screen relative">
+  <div
+    class="animated-text-container h-screen w-full flex items-center justify-center bg-slate-900 text-white relative"
+  >
+    <h2
+      class="animated-text text-2xl md:text-6xl w-full font-bold max-w-4xl text-center"
+    >
+      Inovatívný spôsob reklamy
+    </h2>
+
+    <h2
+      class="animated-text-2 text-3xl w-full md:text-6xl font-bold max-w-4xl text-center absolute opacity-0"
+    >
+      Mobilná aplikácia pre <br /> IOS a Android
+    </h2>
+
+    <h2
+      class="animated-text-3 text-3xl w-full md:text-6xl font-bold max-w-4xl text-center absolute opacity-0"
+    >
+      Kde môžu používatelia <br /> vidieť váš brand ?
+    </h2>
+  </div>
+
+  <div
+    class="homepage-panel absolute bottom-0 left-0 w-full h-0 bg-[#4F26E8] flex flex-col items-center justify-center overflow-hidden"
+  >
+    <div
+      class="absolute top-8 right-8 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center"
+    >
+      <span class="text-slate-900 font-bold text-2xl">01</span>
+    </div>
+    <h1
+      class="text-white text-5xl md:text-8xl lg:text-9xl font-extrabold uppercase"
+    >
+      Homepage
+    </h1>
+    <p class="text-white/80 text-xl mt-4">Prvý dojem, ktorý zanechá stopu.</p>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import SplitType from "split-type";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".scroll-sequence-container",
+      pin: true,
+      scrub: 1,
+      // ZMENA: Predĺžili sme dĺžku, aby bol čas aj na tretí text
+      end: "+=7000",
+    },
+  });
+
+  // Rozdelíme všetky tri texty na písmená
+  const animatedText1 = new SplitType(".animated-text", { types: "chars" });
+  const animatedText2 = new SplitType(".animated-text-2", { types: "chars" });
+  const animatedText3 = new SplitType(".animated-text-3", { types: "chars" }); // ZMENA: Pridaný tretí text
+
+  // === Rozšírená sekvencia animácií ===
+
+  // 1. Zobrazenie PRVÉHO textu
+  tl.from(animatedText1.chars, { opacity: 0, y: 50, stagger: 0.05 });
+  // 2. Pauza
+  tl.to({}, { duration: 1 });
+  // 3. Skrytie PRVÉHO textu
+  tl.to(animatedText1.chars, { opacity: 0, y: -50, stagger: 0.05 });
+
+  // 4. Zobrazenie DRUHÉHO textu
+  tl.to(".animated-text-2", { opacity: 1, duration: 0.01 });
+  tl.from(animatedText2.chars, { opacity: 0, y: 50, stagger: 0.05 }, "<");
+  // 5. Pauza
+  tl.to({}, { duration: 1 });
+  // 6. Skrytie DRUHÉHO textu
+  tl.to(animatedText2.chars, { opacity: 0, y: -50, stagger: 0.05 });
+  tl.to(".animated-text-2", { opacity: 0, duration: 0.01 });
+
+  // --- NOVÁ ČASŤ PRE TRETÍ TEXT ---
+  // 7. Zobrazenie TRETIEHO textu
+  tl.to(".animated-text-3", { opacity: 1, duration: 0.01 });
+  tl.from(animatedText3.chars, { opacity: 0, y: 50, stagger: 0.05 }, "<");
+  // 8. Pauza
+  tl.to({}, { duration: 1 });
+  // 9. Skrytie TRETIEHO textu
+  tl.to(animatedText3.chars, { opacity: 0, y: -50, stagger: 0.05 });
+  tl.to(".animated-text-3", { opacity: 0, duration: 0.01 });
+  // --- KONIEC NOVEJ ČASTI ---
+
+  // 10. Zobrazenie "Homepage" panelu
+  tl.to(".homepage-panel", {
+    height: "100vh",
+    duration: 2,
+    ease: "power2.inOut",
+  });
+  // 11. Pauza
+  tl.to({}, { duration: 1 });
+  // 12. Skrytie "Homepage" panelu
+  tl.to(".homepage-panel", { opacity: 0, duration: 1.5, ease: "power2.inOut" });
+</script>
