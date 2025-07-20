@@ -1,0 +1,85 @@
+---
+// Všetky dáta pre jednotlivé karty sú definované tu.
+// Môžeš jednoducho meniť texty, farby pozadia (vrátane gradientov) a farby odznakov.
+const services = [
+  {
+    number: "01",
+    title: "HOMEPAGE",
+    subtitle: "Prvý dojem, ktorý zanechá stopu.",
+    cardBg: "bg-[#592FCB]", // Tmavofialová
+    badgeBg: "bg-yellow-400",
+    textColor: "#FFFFFF",
+    badgeText: "text-black",
+  },
+  {
+    number: "02",
+    title: "EVENT",
+    subtitle: "Miesto, kde začína hra.",
+    cardBg: "bg-[#C0A9FF]", // Svetlofialová
+    badgeBg: "bg-white",
+    textColor: "#120B2C",
+    badgeText: "text-black",
+  },
+  {
+    number: "03",
+    title: "PRIZE",
+    subtitle: "Motivácia, ktorá poháňa event.",
+    // Príklad použitia gradientu
+    cardBg: "bg-gradient-to-b from-[#FEFEFF] to-[#D8CDF8]",
+    badgeBg: "bg-[#C4B5FD]", // Jemná fialová pre odznak
+    textColor: "#120B2C",
+    badgeText: "text-white",
+  },
+  {
+    number: "04",
+    title: "SOCIALS",
+    subtitle: "Vaša značka, naše publikum.",
+    cardBg: "bg-[#120B2C]", // Tmavofialová
+    badgeBg: "bg-orange-500",
+    textColor: "#FFFFFF",
+    badgeText: "text-white",
+  },
+];
+
+// Pre dokonalú zhodu s dizajnom by si mal použiť špecifický font.
+// Tu je príklad, ako by si mohol definovať triedy pre fonty, ak by si ich importoval.
+const titleFont = "font-extrabold"; // Nahraď svojou triedou pre font (napr. 'font-montserrat')
+---
+
+<section class="w-full pt-48">
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    {
+      services.map((service) => (
+        <div
+          class={`relative flex flex-col justify-between w-full min-h-[400px] text-white overflow-hidden ${service.cardBg}`}
+        >
+          {/* Odznak s číslom */}
+          <div
+            class={`absolute top-8 right-8 w-14 h-14 flex items-center justify-center rounded-full -rotate-12 ${service.badgeBg} ${service.badgeText} ${titleFont} text-xl`}
+          >
+            {service.number}
+          </div>
+
+          {/* Hlavný textový obsah */}
+          <div class="mt-auto md:min-h-[35vh] pt-10 pb-10 text-center content-center z-10">
+            <h2
+              class:list={[
+                "text-5xl md:text-6xl lg:text-8xl font-montserrat-headline-bold uppercase",
+                titleFont,
+              ]}
+              style={service.textColor ? `color: ${service.textColor}` : ""}
+            >
+              {service.title}
+            </h2>
+            <p
+              style={service.textColor ? `color: ${service.textColor}` : ""}
+              class="mt-3 .font-montserrat-podnadpis text-lg opacity-90"
+            >
+              {service.subtitle}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<section
+  class="min-h-[30vh] w-full flex items-center justify-center pb-40 py-20 px-6"
+>
+  <div class="relative max-w-4xl text-center">
+    <h2
+      class="eventy-text text-3xl md:text-5xl font-montserrat-podnadpis text-slate-800 leading-tight"
+    >
+      <span class="font-semibold">Eventy </span> sú udalosti, počas ktorých používatelia
+      súťažia a posúvajú sa vyššie v rebríčku – a po celý čas sú v <span
+        class="font-semibold"
+      >
+        kontakte s vašou značkou.</span
+      >
+    </h2>
+  </div>
+
+  <style>
+    .ecosystem-text .word {
+      display: inline-flex;
+      /* Toto zabezpečí, že sa slovo nikdy nerozdelí, ale môže sa zalomiť medzera za ním */
+    }
+  </style>
+
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from "split-type";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ZMENA #2: Upravíme 'types', aby sme rozdelili text aj na slová, nielen na písmená
+    const myText = new SplitType(".eventy-text", { types: "words, chars" });
+
+    // Zvyšok skriptu zostáva rovnaký
+    gsap.from(myText.chars, {
+      opacity: 0.1,
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: ".eventy-text",
+        start: "top 80%",
+        end: "bottom 45%",
+        scrub: 4,
+      },
+    });
+  </script>
+</section>

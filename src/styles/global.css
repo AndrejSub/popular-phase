@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.font-montserrat-headline-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+.font-montserrat-podnadpis {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+
+}
+
+.font-montserrat-mini {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+
+}

@@ -1,0 +1,62 @@
+---
+import blesk1 from "../assets/blesk1.svg";
+import blesk2 from "../assets/blesk2.svg";
+import blesk3 from "../assets/blesk3.svg";
+import blesk4 from "../assets/blesk4.svg";
+// src/components/SectionHeadline.astro
+
+// Komponent bude prijímať 'text' ako vlastnosť (prop).
+// Ak text nezadáš, použije sa predvolená hodnota.
+const { text = "Predvolený Nadpis" } = Astro.props;
+---
+
+<div class="w-full flex flex-col items-center justify-center gap-20 py-20">
+  <div class="relative inline-flex items-center justify-center py-8 px-20">
+    <div
+      class="absolute top-0 left-0 transform translate-x-2/4 -translate-y-1/4 -rotate-0"
+    >
+      <img
+        src={blesk1.src}
+        alt="Blesk"
+        class="size-12 md:size-22"
+        style="rotate: 45deg;"
+      />
+    </div>
+    <div
+      class="absolute top-0 right-0 transform -translate-x-2/4 -translate-y-1/4 rotate-270"
+    >
+      <img
+        src={blesk2.src}
+        alt="Blesk"
+        class="size-12 md:size-22"
+        style="rotate: 45deg;"
+      />
+    </div>
+    <div
+      class="absolute bottom-0 left-0 transform translate-x-2/4 translate-y-1/4 rotate-240"
+    >
+      <img
+        src={blesk4.src}
+        alt="Blesk"
+        class="size-12 md:size-22"
+        style="rotate: 45deg;"
+      />
+    </div>
+    <div
+      class="absolute bottom-0 right-0 transform -translate-x-2/4 translate-y-1/4 -rotate-320"
+    >
+      <img
+        src={blesk3.src}
+        alt="Blesk"
+        class="size-12 md:size-22"
+        style="rotate: 45deg;"
+      />
+    </div>
+
+    <h2
+      class="text-3xl pt-10 text-center pb-10 font-montserrat-headline-bold md:text-7xl bg-gradient-to-r from-[#2C1E67] to-[#8558FF] text-transparent bg-clip-text"
+    >
+      {text}
+    </h2>
+  </div>
+</div>

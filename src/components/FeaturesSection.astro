@@ -1,0 +1,45 @@
+<section
+  class="min-h-[70vh] w-full flex items-center justify-center py-20 px-6"
+>
+  <div class="relative max-w-4xl text-center">
+    <h2
+      class="ecosystem-text text-3xl md:text-5xl font-montserrat-podnadpis text-slate-800 leading-tight"
+    >
+      Vytvárame <span class="font-semibold">inovatívny ekosystém,</span> ktorý dáva
+      reálny rozmer hráčskej skúsenosti a prináša <span class="font-semibold">
+        nový štandard
+      </span>
+      <span class="font-semibold"> efektívnej in-game inzercie. </span>
+    </h2>
+  </div>
+
+  <style>
+    .ecosystem-text .word {
+      display: inline-flex;
+      /* Toto zabezpečí, že sa slovo nikdy nerozdelí, ale môže sa zalomiť medzera za ním */
+    }
+  </style>
+
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from "split-type";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ZMENA #2: Upravíme 'types', aby sme rozdelili text aj na slová, nielen na písmená
+    const myText = new SplitType(".ecosystem-text", { types: "words, chars" });
+
+    // Zvyšok skriptu zostáva rovnaký
+    gsap.from(myText.chars, {
+      opacity: 0.1,
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: ".ecosystem-text",
+        start: "top 80%",
+        end: "bottom 45%",
+        scrub: 4,
+      },
+    });
+  </script>
+</section>

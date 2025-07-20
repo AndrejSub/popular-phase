@@ -1,0 +1,100 @@
+---
+// src/components/VisibilitySection.astro
+
+const placeholderSvg = (width, height, text = "Tvoje SVG") => `
+  <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto border-2 border-dashed border-slate-400/50 rounded-lg">
+    <rect width="100%" height="100%" fill="#f0f0f0"/>
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#999">${text}</text>
+  </svg>
+`;
+
+import banner from "../assets/banner.svg";
+import banner2 from "../assets/banner2.svg";
+import banner3 from "../assets/banner3.svg";
+import banner4 from "../assets/banner4.svg";
+---
+
+<section class="w-full py-20 px-6">
+  <div
+    class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 items-start"
+  >
+    <div class="relative text-start justify-start md:col-span-2">
+      <h2
+        class="text-4xl text-center md:text-start md:text-8xl font-montserrat pr-0 md:pr-15 text-slate-900 leading-tight"
+      >
+        <span class="font-bold">VIDITEĽNOSŤ</span> OD PRVEJ SEKUNDY
+      </h2>
+    </div>
+
+    <div
+      class="space-y-10 col-start grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10"
+    >
+      <div class="flex items-start gap-4">
+        <div
+          class="flex-shrink-0 w-8 h-8 bg-yellow-400 text-slate-900 font-bold flex items-center justify-center rounded-full"
+        >
+          1
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-slate-900">
+            HERO BANNER VO VAŠOM BRANDE
+          </h3>
+          <div class="mt-4 w-full max-w-[353px]">
+            <img
+              style="border-radius: 2rem;"
+              src={banner.src}
+              alt="Hero Banner"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-x-8 gap-y-10">
+        <div class="flex items-start gap-4">
+          <div
+            class="flex-shrink-0 w-8 h-8 bg-blue-400 text-slate-900 font-bold flex items-center justify-center rounded-full"
+          >
+            2
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-slate-900">LOGO NA OČIACH</h3>
+            <div class="mt-4 w-full max-w-[353px]">
+              <img
+                src={banner3.src}
+                alt="Logo Banner "
+                class="w-full pt-8 h-auto"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div
+            class="flex-shrink-0 w-8 h-8 bg-purple-400 text-slate-900 font-bold flex items-center justify-center rounded-full"
+          >
+            3
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-slate-900">
+              NÁZOV ZNAČKY AKO SÚČASŤ VIZUÁLU
+            </h3>
+            <div class="mt-4 w-full max-w-[353px]">
+              <img
+                src={banner4.src}
+                alt="Brand Name Banner"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden lg:flex justify-center items-center">
+      <div class="w-full max-w-sm">
+        <img src={banner2.src} alt="Iphone banner w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</section>
