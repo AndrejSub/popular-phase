@@ -1,0 +1,64 @@
+<section
+  class="scroll-sequence-container4 bg-[radial-gradient(ellipse_at_top,_#120B2C,_#281542)] min-h-screen relative"
+>
+  <div
+    class="socials-panel absolute bottom-0 left-0 w-full h-0 bg-[#120B2C] flex flex-col items-center justify-center overflow-hidden"
+  >
+    <div
+      class="absolute top-8 right-8 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center"
+    >
+      <span class="text-[#FFFFFF] font-bold text-2xl">02</span>
+    </div>
+    <h1
+      class="text-[#FFFFFF] text-5xl md:text-8xl lg:text-9xl font-extrabold uppercase"
+    >
+      SOCIALS
+    </h1>
+    <p class="text-[#FFFFFF]/80 text-xl mt-4">Vaša značka, naše publikum.</p>
+  </div>
+</section>
+
+<style>
+  /* Tento blok môže zostať prázdny alebo ho môžete úplne vymazať. */
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  // ZMENA: SplitType už nie je potrebný, lebo neanimujeme žiadny text po písmenách.
+  // import SplitType from "split-type";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".scroll-sequence-container4",
+      pin: true,
+      scrub: 1,
+      // ZMENA: Skrátil som dĺžku skrolovania, keďže už nemáme úvodnú animáciu textu.
+      // Vďaka tomu bude animácia panela svižnejšia.
+      end: "+=2000",
+    },
+  });
+
+  // --- ZJEDNODUŠENÁ ANIMÁCIA IBA PRE PANEL ---
+  // Všetky animácie pre `.animated-text` boli odstránené.
+
+  // 1. Zobrazenie "Event" panela
+  // ZMENA: Selektor bol zmenený z .homepage-panel na .socials-panel
+  tl.to(".socials-panel", {
+    height: "100vh",
+    duration: 2,
+    ease: "power2.inOut",
+  });
+
+  // 2. Pauza
+  tl.to({}, { duration: 1 });
+
+  // 3. Skrytie "Event" panela
+  tl.to(".socials-panel", {
+    opacity: 0,
+    duration: 1.5,
+    ease: "power2.inOut",
+  });
+</script>

@@ -22,3 +22,24 @@
   font-weight: 400;
 
 }
+
+blesk::before {
+    /* KROK 1: Vloží obsah (obrázok) pred každý <blesk> element */
+    /* Uistite sa, že cesta '/blesk.webp' zodpovedá názvu súboru v 'public' zložke */
+    content: url("../assets/blesk.webp");
+
+    /* KROK 2: Nastaví správanie a rozmery ikony */
+    display: inline-block; /* Umožní nastaviť veľkosť a medzery */
+    width: 1.1rem; /* Šírka ikony (upravte podľa potreby) */
+    height: 1.1rem; /* Výška ikony (upravte podľa potreby) */
+
+    /* KROK 3: Vytvorí medzeru a zarovná ikonu s textom */
+    margin-right: 0.75rem; /* Medzera medzi ikonou a textom */
+    vertical-align: middle; /* Vertikálne zarovnanie s textom */
+
+    /* Bonus: Pre jemné doladenie vertikálnej pozície, ak by to nesedelo presne */
+    position: relative;
+    top: -0.1em; /* Jemne posunie ikonu vyššie. Odstráňte, ak netreba. */
+  }
+
+  

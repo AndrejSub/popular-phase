@@ -9,19 +9,8 @@
     <h2
       class="animated-text text-2xl md:text-6xl w-full font-bold max-w-4xl text-center"
     >
-      Inovatívný spôsob reklamy
-    </h2>
-
-    <h2
-      class="animated-text-2 text-3xl w-full md:text-6xl font-bold max-w-4xl text-center absolute opacity-0"
-    >
-      Mobilná aplikácia pre <br /> IOS a Android
-    </h2>
-
-    <h2
-      class="animated-text-3 text-3xl w-full md:text-6xl font-bold max-w-4xl text-center absolute opacity-0"
-    >
-      Kde môžu používatelia <br /> vidieť váš brand ?
+      Event je komplexná časovo ohraničená kampaň figurujúca výhradne pod vašou
+      značkou, ktorá
     </h2>
   </div>
 
@@ -42,6 +31,13 @@
   </div>
 </section>
 
+<style>
+  .animated-text .word {
+    display: inline-flex;
+    /* Toto zabezpečí, že sa slovo nikdy nerozdelí, ale môže sa zalomiť medzera za ním */
+  }
+</style>
+
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -54,53 +50,47 @@
       trigger: ".scroll-sequence-container",
       pin: true,
       scrub: 1,
-      // ZMENA: Predĺžili sme dĺžku, aby bol čas aj na tretí text
-      end: "+=7000",
+      end: "+=4000", // Upravil som dĺžku pre plynulejší zážitok
     },
   });
 
-  // Rozdelíme všetky tri texty na písmená
-  const animatedText1 = new SplitType(".animated-text", { types: "chars" });
-  const animatedText2 = new SplitType(".animated-text-2", { types: "chars" });
-  const animatedText3 = new SplitType(".animated-text-3", { types: "chars" }); // ZMENA: Pridaný tretí text
+  // Rozdelíme text na písmená
+  const animatedText = new SplitType(".animated-text", {
+    types: "words,chars",
+  });
 
-  // === Rozšírená sekvencia animácií ===
+  // === NOVÁ ANIMÁCIA: Elegantné Zväčšenie a Rozostrenie ===
 
-  // 1. Zobrazenie PRVÉHO textu
-  tl.from(animatedText1.chars, { opacity: 0, y: 50, stagger: 0.05 });
-  // 2. Pauza
-  tl.to({}, { duration: 1 });
-  // 3. Skrytie PRVÉHO textu
-  tl.to(animatedText1.chars, { opacity: 0, y: -50, stagger: 0.05 });
+  // 1. Zobrazenie textu
+  tl.from(animatedText.chars, {
+    opacity: 0,
+    scale: 0.5, // Písmená začnú na polovičnej veľkosti a dorastú
+    filter: "blur(10px)", // Začnú rozostrené a zaostria sa
+    stagger: 0.05, // Postupne po písmenách
+    ease: "power2.out",
+  });
 
-  // 4. Zobrazenie DRUHÉHO textu
-  tl.to(".animated-text-2", { opacity: 1, duration: 0.01 });
-  tl.from(animatedText2.chars, { opacity: 0, y: 50, stagger: 0.05 }, "<");
-  // 5. Pauza
-  tl.to({}, { duration: 1 });
-  // 6. Skrytie DRUHÉHO textu
-  tl.to(animatedText2.chars, { opacity: 0, y: -50, stagger: 0.05 });
-  tl.to(".animated-text-2", { opacity: 0, duration: 0.01 });
+  // 2. Pauza - text zostane chvíľu čitateľný
+  tl.to({}, { duration: 1.5 });
 
-  // --- NOVÁ ČASŤ PRE TRETÍ TEXT ---
-  // 7. Zobrazenie TRETIEHO textu
-  tl.to(".animated-text-3", { opacity: 1, duration: 0.01 });
-  tl.from(animatedText3.chars, { opacity: 0, y: 50, stagger: 0.05 }, "<");
-  // 8. Pauza
-  tl.to({}, { duration: 1 });
-  // 9. Skrytie TRETIEHO textu
-  tl.to(animatedText3.chars, { opacity: 0, y: -50, stagger: 0.05 });
-  tl.to(".animated-text-3", { opacity: 0, duration: 0.01 });
-  // --- KONIEC NOVEJ ČASTI ---
+  // 3. Skrytie textu
+  tl.to(animatedText.chars, {
+    opacity: 0,
+    filter: "blur(10px)", // Opäť sa rozostria
+    stagger: 0.0, // Postupne sa strácajú
+    ease: "power2.in",
+  });
 
-  // 10. Zobrazenie "Homepage" panelu
+  // Zvyšok animácie pre "Homepage" panel zostáva rovnaký
   tl.to(".homepage-panel", {
     height: "100vh",
     duration: 2,
     ease: "power2.inOut",
   });
-  // 11. Pauza
   tl.to({}, { duration: 1 });
-  // 12. Skrytie "Homepage" panelu
-  tl.to(".homepage-panel", { opacity: 0, duration: 1.5, ease: "power2.inOut" });
+  tl.to(".homepage-panel", {
+    opacity: 0,
+    duration: 1.5,
+    ease: "power2.inOut",
+  });
 </script>
