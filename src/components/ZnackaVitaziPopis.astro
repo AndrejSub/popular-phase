@@ -1,0 +1,45 @@
+<section
+  class="min-h-[30vh] w-full flex items-center justify-center pb-40 py-20 px-6"
+>
+  <div class="relative max-w-4xl text-center">
+    <h2
+      class="znacka-popis text-2xl md:text-5xl font-inter font-medium text-slate-800 leading-tight"
+    >
+      Od prehľadu cien, cez sponzoring eventu až po nenásilné bannery, <span
+        class="font-bold"
+        class="font-bold"
+        >branding
+      </span>
+      <span class="font-bold"> je </span>
+      <span class="font-bold"> implementovaný </span>
+      <span class="font-bold"> do </span>
+      <span class="font-bold"> každodenného </span>
+      <span class="font-bold"> používania </span>
+      <span class="font-bold"> platformy.</span> Vy sa tak pre používateľov stávate
+      symbolom zábavy a skutočnej hodnoty.
+    </h2>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import SplitType from "split-type";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ZMENA #2: Upravíme 'types', aby sme rozdelili text aj na slová, nielen na písmená
+  const myText = new SplitType(".znacka-popis", { types: "words, chars" });
+
+  // Zvyšok skriptu zostáva rovnaký
+  gsap.from(myText.chars, {
+    opacity: 0.1,
+    stagger: 0.05,
+    scrollTrigger: {
+      trigger: ".znacka-popis",
+      start: "top 80%",
+      end: "bottom 45%",
+      scrub: 4,
+    },
+  });
+</script>

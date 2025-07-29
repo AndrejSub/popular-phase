@@ -1,0 +1,46 @@
+---
+// Komponent pre sekciu "Hero"
+// Používa Tailwind CSS pre štýlovanie.
+import napis from "../assets/CasovoObmedzene.png";
+import Footer from "./Footer.astro";
+---
+
+<section class="bg-[#120B2C] text-white py-20 sm:py-24 md:py-32">
+  <div class="container mx-auto px-4 flex flex-col items-center text-center">
+    <h1
+      class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight tracking-tight max-w-4xl"
+    >
+      VSTÚPTE S NAMI DO <br />
+      SVETA EFEKTÍVNEJ <br />
+      DIGITÁLNEJ INZERCIE.
+    </h1>
+
+    <div class="relative mt-12">
+      <div class="absolute -top-10 -right-10 z-10">
+        <img
+          src={napis.src}
+          alt="Casovo obmedzené"
+          class="w-38 sm:w-38 md:w-48"
+        />
+      </div>
+
+      <div
+        class="bg-gradient-to-r from-[#592FCB] to-[#9472f0] backdrop-blur-sm rounded-2xl pr-15 pl-15 p-8 max-w-md"
+      >
+        <p
+          class="text-sm sm:text-base font-display font-bold uppercase tracking-wider mb-6"
+        >
+          Jedinečné podmienky <br /> pre prvých partnerov
+        </p>
+        <!-- Todo v produkcii zmenit -->
+        <a
+          href="popular-phase/prvypartner"
+          class="inline-block bg-white text-[#592FCA] font-bold font-display py-3 px-10 rounded-xl text-sm uppercase tracking-wider hover:bg-gray-200 transition-colors duration-300"
+        >
+          Vedieť viac
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<Footer />

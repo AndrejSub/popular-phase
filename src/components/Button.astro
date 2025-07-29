@@ -9,12 +9,12 @@ const { href = "#", text = "Klikni tu", style = "" } = Astro.props;
 <a
   href={href}
   style={style}
-  class="inline-block text-white cursor-pointer font-bold
+  class="inline-block text-white cursor-pointer
     bg-gradient-to-r from-[#592FCB] to-violet-500
-    font-montserrat
-    hover:opacity-90 transition-opacity pl-5 pr-5
+    font-display font-bold
+    hover:opacity-90 transition-opacity pl-5 pr-5 md:pl-10 md:pr-10
     focus:ring-4 focus:outline-none focus:ring-violet-300
-    rounded-lg text-sm px-8 py-3 text-center"
+    rounded-lg sm:text-sm md:text-xl px-8 py-3 text-center"
 >
   {text}
 </a>

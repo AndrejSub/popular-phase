@@ -1,0 +1,88 @@
+---
+// src/components/IphoneScroll.astro
+
+// Cesty k vašim obrázkom iPhonov
+// Uistite sa, že obrázky sú v priečinku `src/assets/`
+import iPhone1 from "../assets/IphoneScroll1.webp";
+import iPhone2 from "../assets/IphoneScroll2.webp";
+import iPhone3 from "../assets/IphoneScroll3.webp";
+---
+
+<section id="horizontal-scroll-container" class="relative">
+  <div id="pin-container" class="sticky top-0 h-screen w-full overflow-hidden">
+    <div id="scroll-track" class="flex h-full items-center relative">
+      <div
+        class="flex h-full shrink-0 items-center justify-center px-12 md:px-24"
+      >
+        <img
+          src={iPhone1.src}
+          alt="iPhone App 1"
+          class="h-auto max-h-[50vh] w-auto"
+        />
+      </div>
+      <div
+        class="flex h-full shrink-0 items-center justify-center px-12 md:px-24"
+      >
+        <img
+          src={iPhone2.src}
+          alt="iPhone App 2"
+          class="h-auto max-h-[50vh] w-auto"
+        />
+      </div>
+      <div
+        class="flex h-full shrink-0 items-center justify-center px-12 md:px-24"
+      >
+        <img
+          src={iPhone3.src}
+          alt="iPhone App 3"
+          class="h-auto max-h-[50vh] w-auto"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector<HTMLElement>("#scroll-track");
+    const container = document.querySelector<HTMLElement>(
+      "#horizontal-scroll-container"
+    );
+
+    // Vypočítame celkovú vzdialenosť, ktorú musí animácia prejsť
+    // (od pravej strany obrazovky až po úplné zmiznutie naľavo)
+    const totalScrollDistance = () => track.scrollWidth + window.innerWidth;
+
+    // Dynamicky nastavíme výšku hlavného kontajnera.
+    // Tým zaistíme, že dĺžka skrolovania presne zodpovedá dĺžke animácie.
+    container.style.height = `${totalScrollDistance() + 100}px`;
+
+    // Použijeme gsap.fromTo pre presnú kontrolu nad začiatočným a koncovým stavom.
+    gsap.fromTo(
+      track,
+      {
+        // ŠTART: Pás s telefónmi začína za pravým okrajom obrazovky.
+        x: () => window.innerWidth + "px",
+      },
+      {
+        // CIEĽ: Pás skončí až keď jeho pravý okraj zmizne za ľavým okrajom obrazovky.
+        x: () => -track.scrollWidth + "px",
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          invalidateOnRefresh: true,
+          pin: "#pin-container", // Pripíname vnútorný div, nie celý kontajner
+          scrub: 1,
+          start: "top top",
+          // Koniec animácie je presne po odskrolovaní celej vypočítanej vzdialenosti
+          end: () => `+=${totalScrollDistance()}`,
+        },
+      }
+    );
+  });
+</script>

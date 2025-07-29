@@ -1,0 +1,127 @@
+{/* src/components/FloatingPromo.astro */}
+
+<div
+  id="floating-promo"
+  class="fixed hidden md:block top-1/2 -translate-y-1/2 right-0 z-50
+         w-48 h-48 overflow-hidden /* CHANGED – schová presah */
+         bg-gradient-to-r from-[#592FCB] to-violet-500
+         rounded-l-xl cursor-pointer shadow-2xl transition-all duration-500"
+>
+  <div class="relative w-full h-full">
+    <!-- ZBALENÝ STAV -->
+    <div
+      id="collapsed-view"
+      class="w-full flex flex-col items-start justify-center
+             font-display font-bold text-white py-8 px-4"
+    >
+      <div class="text-start">
+        <span class="uppercase text-lg font-semibold tracking-wider"
+          >Jedinečné</span
+        >
+      </div>
+      <div class="text-start mt-2">
+        <span class="uppercase text-lg font-semibold tracking-wider"
+          >podmienky</span
+        >
+      </div>
+      <div class="text-start mt-2">
+        <span class="uppercase text-lg font-semibold tracking-wider"
+          >pre prvých</span
+        >
+      </div>
+      <div class="text-start mt-2">
+        <span class="uppercase text-lg font-semibold tracking-wider"
+          >partnerov</span
+        >
+      </div>
+    </div>
+
+    <!-- ROZBALENÝ STAV – defaultne skrytý a neklikateľný -->
+    <div
+      id="expanded-view"
+      class="absolute inset-0 p-10 flex flex-col justify-center
+             text-white opacity-0 pointer-events-none"
+    >
+      <h3 class="text-2xl font-display font-bold whitespace-nowrap">
+        Jedinečné podmienky<br /> pre prvých partnerov
+      </h3>
+      <a
+        href="popular-phase/prvypartner"
+        class="mt-6 px-5 py-2.5 bg-[#FFFFFF] text-[#592FCA] font-display font-bold rounded-lg
+               transition-colors duration-200 self-start whitespace-nowrap"
+      >
+        Vedieť viac
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const promoBox = document.getElementById("floating-promo");
+    const collapsedView = document.getElementById("collapsed-view");
+    const expandedView = document.getElementById("expanded-view");
+
+    const expandedWidth = 480; // cieľová šírka po rozbalení
+
+    /* ---------- GSAP timeline pre hover ---------- */
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(promoBox, {
+      width: expandedWidth,
+      duration: 0.5,
+      ease: "power3.inOut",
+    })
+      .to(collapsedView, { autoAlpha: 0, duration: 0.2 }, "<")
+      .to(
+        expandedView,
+        {
+          opacity: 1,
+          pointerEvents: "auto",
+          duration: 0.4,
+          ease: "power2.out",
+        },
+        "<"
+      );
+
+    promoBox.addEventListener("mouseenter", () => !tl.isActive() && tl.play());
+    promoBox.addEventListener(
+      "mouseleave",
+      () => !tl.isActive() && tl.reverse()
+    );
+
+    /* ---------- IntersectionObserver – skry panel pri #PartnerComponent ---------- */
+    const partnerEl = document.getElementById("PartnerComponent"); // NEW
+    if (partnerEl) {
+      // NEW
+      const io = new IntersectionObserver( // NEW
+        ([entry]) => {
+          // NEW
+          if (entry.isIntersecting) {
+            // NEW
+            // partner sekcia vošla do viewportu – skry panel        // NEW
+            gsap.to(promoBox, {
+              autoAlpha: 0,
+              pointerEvents: "none",
+              duration: 0.3,
+            });
+          } else {
+            // NEW
+            // partner sekcia mimo viewportu – zobraz panel         // NEW
+            gsap.to(promoBox, {
+              autoAlpha: 1,
+              pointerEvents: "auto",
+              duration: 0.3,
+            });
+          }
+        },
+        {
+          rootMargin: "0px 0px -150px 0px", // NEW → zmizne ~150 px predtým, než je sekcia úplne viditeľná
+        }
+      );
+      io.observe(partnerEl); // NEW
+    }
+  });
+</script>

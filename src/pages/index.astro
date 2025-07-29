@@ -6,7 +6,7 @@ import SectionHeadline from "../components/SectionHeadline.astro";
 import EventyPopis from "../components/EventyPopis.astro";
 import Layout from "../layouts/Layout.astro";
 import Kategorie from "../components/Kategorie.astro";
-import "../styles/global.css";
+
 import Homepage1 from "../components/Homepage1.astro";
 import ScrollSequence from "../components/ScrollSequence.astro";
 import EventScroll from "../components/EventScroll.astro";
@@ -17,6 +17,13 @@ import Prize1 from "../components/Prize1.astro";
 import Prize2 from "../components/Prize2.astro";
 import SocialsScroll from "../components/SocialsScroll.astro";
 import Socials1 from "../components/Socials1.astro";
+import ZnackaVitaziPopis from "../components/ZnackaVitaziPopis.astro";
+import PurpleSection from "../components/PurpleSection.astro";
+import IPhoneScroll from "../components/IPhoneScroll.astro";
+import PinnedScroll from "../components/PinnedScroll.astro";
+import Luce2Section from "../components/Luce2Section.astro";
+import PrvyPartner from "../components/PrvyPartner.astro";
+import FloatingComponent from "../components/FloatingComponent.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -25,19 +32,28 @@ import Socials1 from "../components/Socials1.astro";
 <Layout>
   <HeroSection />
   <FeaturesSection />
-  <MobilMockup />
 
   <SectionHeadline text="Ako to funguje?" />
   <EventyPopis />
+  <PinnedScroll />
+  <SectionHeadline text="Vaša značka víťazí!" />
+  <ZnackaVitaziPopis />
+  <MobilMockup />
+  <PurpleSection />
+  <IPhoneScroll />
   <ScrollSequence />
+
   <!-- <Kategorie /> -->
   <Homepage1 />
   <EventScroll />
   <Event1 />
-  <Event2 />
+  <!-- <Event2 /> -->
   <PrizeScroll />
   <Prize1 />
-  <Prize2 />
+  <!-- <Prize2 /> -->
   <SocialsScroll />
   <Socials1 />
+  <Luce2Section />
+  <PrvyPartner />
+  <FloatingComponent />
 </Layout>

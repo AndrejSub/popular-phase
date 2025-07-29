@@ -1,42 +1,52 @@
 ---
 import Button from "./Button.astro";
 import PhoneMockup from "../assets/phone-mockup-hero.svg";
-import Blesk from "../assets/blesk.svg";
-import FeaturesSection from "./FeaturesSection.astro";
+import Blesk from "../assets/blesk.png";
+// 1. Importujeme tvoj obrázok
+import Machula from "../assets/machula.webp";
 ---
 
-<section class="relative pt-25 md:pt-0 w-full min-h-screen overflow-hidden">
-  <div class="absolute inset-0 %"></div>
-
-  <div
-    class="relative z-10 max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 min-h-screen px-6"
-  >
+<div class="relative">
+  <section class="relative w-full min-h-screen overflow-hidden">
     <div
-      class="flex flex-col justify-center text-center md:col-span-8 md:text-left"
+      class="relative z-10 max-w-screen-xl mx-auto grid grid-cols-1 gap-8 min-h-screen px-6 pt-25 md:pt-0"
     >
-      <h1
-        class="text-4xl md:text-8xl font-montserrat text-slate-900 leading-tight"
+      <div
+        class="flex flex-col justify-center text-center md:col-span-8 md:text-left"
       >
-        <span class="font-bold">Buďte viditeľní</span> tak ako nikde inde!
-        <span class="hidden md:inline-block"
-          ><img class="pb-5 size-14" src={Blesk.src} /></span
+        <h1
+          class="text-4xl md:text-8xl text-center font-display font-bold text-slate-900 leading-tight"
         >
-      </h1>
-      <div class="mt-10 flex justify-center md:justify-start">
-        <Button
-          href="/media-kit"
-          text="MEDIA KIT"
-          style="padding-right:40px; padding-left: 40px; "
+          Buďte <span class="text-[#592FCB]">viditeľní </span> tak ako nikde inde!
+          <span class="inline-block"
+            ><img class="size-12 md:size-24" src={Blesk.src} /></span
+          >
+        </h1>
+      </div>
+
+      <div class="relative md:col-span-4 min-h-[50vh]">
+        <img
+          src={PhoneMockup.src}
+          alt="Aplikácia v mobile - popredie"
+          class="absolute w-96 pt-10 md:w-[38rem] max-w-none top-1/2 left-1/2 -translate-x-3/5 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10"
         />
       </div>
     </div>
+  </section>
 
-    <div class="relative md:col-span-4 min-h-[50vh]">
-      <img
-        src={PhoneMockup.src}
-        alt="Aplikácia v mobile - popredie"
-        class="absolute w-96 pt-10 md:w-[38rem] max-w-none top-1/2 left-1/2 -translate-x-3/5 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10"
-      />
-    </div>
-  </div>
-</section>
+  <img
+    src={Machula.src}
+    alt=""
+    aria-hidden="true"
+    class="absolute
+      -bottom-110
+      left-1/2
+      -translate-x-1/2
+      w-[100rem]
+      h-[60rem]
+      object-cover
+      blur-3xl
+      opacity-40
+      z-0"
+  />
+</div>

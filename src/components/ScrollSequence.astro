@@ -1,47 +1,38 @@
 ---
 // src/components/ScrollSequence.astro
+import jednotka from "../assets/01.svg";
 ---
 
 <section class="scroll-sequence-container min-h-screen relative">
   <div
-    class="animated-text-container h-screen w-full flex items-center justify-center bg-slate-900 text-white relative"
-  >
-    <h2
-      class="animated-text text-2xl md:text-6xl w-full font-bold max-w-4xl text-center"
-    >
-      Event je komplexná časovo ohraničená kampaň figurujúca výhradne pod vašou
-      značkou, ktorá
-    </h2>
-  </div>
-
-  <div
-    class="homepage-panel absolute bottom-0 left-0 w-full h-0 bg-[#4F26E8] flex flex-col items-center justify-center overflow-hidden"
+    class="homepage-panel pb-10 pl-5 md:pb-45 md:pl-15 absolute bottom-0 left-0 w-full h-0 bg-[#4F26E8] flex flex-col items-start justify-end overflow-hidden"
   >
     <div
-      class="absolute top-8 right-8 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center"
+      class="absolute size-20 bottom-24 md:bottom-76 md:left-45 md:size-64 rounded-full flex items-center justify-center"
     >
-      <span class="text-slate-900 font-bold text-2xl">01</span>
+      <img src={jednotka.src} alt="" />
     </div>
     <h1
-      class="text-white text-5xl md:text-8xl lg:text-9xl font-extrabold uppercase"
+      class="text-white font-display text-5xl md:text-9xl lg:text-[200px] font-bold uppercase"
     >
       Homepage
     </h1>
-    <p class="text-white/80 text-xl mt-4">Prvý dojem, ktorý zanechá stopu.</p>
+    <p class="text-white text-3xl font-inter font-medium mt-4">
+      Prvý dojem, ktorý zanechá stopu.
+    </p>
   </div>
 </section>
 
 <style>
   .animated-text .word {
     display: inline-flex;
-    /* Toto zabezpečí, že sa slovo nikdy nerozdelí, ale môže sa zalomiť medzera za ním */
   }
 </style>
 
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import SplitType from "split-type";
+  // Import SplitType bol odstránený, už ho nepotrebujeme
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -50,38 +41,14 @@
       trigger: ".scroll-sequence-container",
       pin: true,
       scrub: 1,
-      end: "+=4000", // Upravil som dĺžku pre plynulejší zážitok
+      // Dĺžku scrollu sme skrátili pre plynulejší zážitok bez textu
+      end: "+=1500",
     },
   });
 
-  // Rozdelíme text na písmená
-  const animatedText = new SplitType(".animated-text", {
-    types: "words,chars",
-  });
+  // Celý blok animácie pre ".animated-text" bol odstránený.
+  // Začíname priamo animáciou pre "Homepage" panel.
 
-  // === NOVÁ ANIMÁCIA: Elegantné Zväčšenie a Rozostrenie ===
-
-  // 1. Zobrazenie textu
-  tl.from(animatedText.chars, {
-    opacity: 0,
-    scale: 0.5, // Písmená začnú na polovičnej veľkosti a dorastú
-    filter: "blur(10px)", // Začnú rozostrené a zaostria sa
-    stagger: 0.05, // Postupne po písmenách
-    ease: "power2.out",
-  });
-
-  // 2. Pauza - text zostane chvíľu čitateľný
-  tl.to({}, { duration: 1.5 });
-
-  // 3. Skrytie textu
-  tl.to(animatedText.chars, {
-    opacity: 0,
-    filter: "blur(10px)", // Opäť sa rozostria
-    stagger: 0.0, // Postupne sa strácajú
-    ease: "power2.in",
-  });
-
-  // Zvyšok animácie pre "Homepage" panel zostáva rovnaký
   tl.to(".homepage-panel", {
     height: "100vh",
     duration: 2,

@@ -1,0 +1,61 @@
+---
+import LuceSVG from "../assets/PozadieSlnko.png";
+import Blesk1 from "../assets/blesk1.svg";
+import Blesk2 from "../assets/blesk2.svg";
+import Blesk3 from "../assets/blesk3.svg";
+import Blesk4 from "../assets/blesk4.svg";
+---
+
+<section
+  class="relative min-h-[800px] isolate grid place-items-center overflow-hidden text-center text-white"
+>
+  <div
+    class="absolute inset-0 -z-20 bg-gradient-to-r from-[#592FCB] to-[#C0A9FF]"
+  >
+    <div
+      class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(126,87,255,0.85)_0%,rgba(90,53,230,0.65)_40%,rgba(53,24,189,0.95)_100%)]"
+    >
+    </div>
+  </div>
+  <img
+    src={LuceSVG.src}
+    alt=""
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-100 pointer-events-none"
+    width={LuceSVG.width}
+    height={LuceSVG.height}
+  />
+
+  <img
+    src={Blesk1.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-28 -rotate-111 top-[33%] left-[20%]"
+    aria-hidden="true"
+  />
+  <img
+    src={Blesk2.src}
+    alt=""
+    class="absolute w-12 sm:w-8 md:w-10 lg:w-28 rotate-111 top-[33%] right-[20%]"
+    aria-hidden="true"
+  />
+  <img
+    src={Blesk4.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-28 rotate-100 bottom-[27%] left-[20%]"
+    aria-hidden="true"
+  />
+  <img
+    src={Blesk3.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-28 rotate-270 bottom-[27%] right-[20%]"
+    aria-hidden="true"
+  />
+
+  <div class="relative max-w-6xl mx-auto px-4">
+    <p class="text-lg font-display md:text-2xl font-medium mb-4">
+      Komplexne sa o vás postaráme!
+    </p>
+    <h1 class="text-3xl md:text-7xl font-display font-semibold">
+      Kde všade budete na očiach?
+    </h1>
+  </div>
+</section>

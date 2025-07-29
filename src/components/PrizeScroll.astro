@@ -1,20 +1,26 @@
+---
+import trojka from "../assets/03.svg";
+---
+
 <section
-  class="scroll-sequence-container3 bg-[radial-gradient(ellipse_at_top,_#FEFEFE,_#D8CDF7)] min-h-screen relative"
+  class="scroll-sequence-container3 min-h-screen bg-[radial-gradient(ellipse_at_top,_#FEFEFF,_#D8CDF8)] relative"
 >
   <div
-    class="prize-panel absolute bottom-0 left-0 w-full h-0 flex flex-col items-center justify-center overflow-hidden"
+    class="prize-panel pb-10 pl-5 md:pb-45 md:pl-15 absolute bottom-0 left-0 w-full h-0 flex flex-col items-start justify-end overflow-hidden"
   >
     <div
-      class="absolute top-8 right-8 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center"
+      class="absolute size-20 bottom-24 md:bottom-76 md:left-45 md:size-64 rounded-full flex items-center justify-center"
     >
-      <span class="text-slate-900 font-bold text-2xl">03</span>
+      <img src={trojka.src} alt="" />
     </div>
     <h1
-      class="text-[#120B2C] text-5xl md:text-8xl lg:text-9xl font-extrabold uppercase"
+      class="text-[#120B2C] font-display text-5xl md:text-9xl lg:text-[200px] font-bold uppercase"
     >
       PRIZE
     </h1>
-    <p class="text-[#120B2C]/80 text-xl mt-4">Motívacia, ktorá pomáňa event.</p>
+    <p class="text-[#120B2C] text-3xl font-inter font-medium mt-4">
+      Motívacia, ktorá pomáňa event.
+    </p>
   </div>
 </section>
 

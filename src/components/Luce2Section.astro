@@ -1,0 +1,79 @@
+---
+import LuceSVG from "../assets/LuceBiele.png";
+import Blesk1 from "../assets/blesk1.svg";
+import Blesk2 from "../assets/blesk2.svg";
+import Blesk3 from "../assets/blesk3.svg";
+import Blesk4 from "../assets/blesk4.svg";
+import Xbox from "../assets/xboxFoto.webp";
+import Button from "./Button.astro";
+import AppleWatch from "../assets/AppleWatch.webp";
+import BlueIphone from "../assets/IphoneBlue.webp";
+---
+
+<section
+  class="relative min-h-[800px] isolate grid place-items-center text-center text-white"
+>
+  <div id="PartnerComponent" class="absolute inset-0 -z-20">
+    <div class="absolute inset-0"></div>
+  </div>
+  <img
+    src={LuceSVG.src}
+    alt=""
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-100 pointer-events-none"
+    width={LuceSVG.width}
+    height={LuceSVG.height}
+  />
+
+  <img
+    src={Blesk1.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-28 -rotate-111 top-[22%] left-[23%]"
+    aria-hidden="true"
+  />
+  <img
+    src={Xbox.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-120 -top-[23%] left-[50%]"
+    aria-hidden="true"
+  />
+
+  <img
+    src={AppleWatch.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-120 -bottom-[25%] left-[5%]"
+    aria-hidden="true"
+  />
+  <img
+    src={BlueIphone.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-84 -bottom-[25%] right-[5%]"
+    aria-hidden="true"
+  />
+  <img
+    src={Blesk2.src}
+    alt=""
+    class="absolute w-12 sm:w-8 md:w-10 lg:w-28 rotate-300 top-[22%] right-[23%]"
+    aria-hidden="true"
+  />
+  <img
+    src={Blesk4.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-28 rotate-100 bottom-[30%] left-[23%]"
+    aria-hidden="true"
+  />
+  <img
+    src={Blesk3.src}
+    alt=""
+    class="absolute w-12 sm:w-12 md:w-16 lg:w-28 rotate-270 bottom-[30%] right-[23%]"
+    aria-hidden="true"
+  />
+
+  <div class="relative max-w-7xl mx-auto px-4">
+    <h1
+      class="text-3xl md:text-7xl pb-10 font-display font-semibold text-[#120B2C]"
+    >
+      Nahliadnite do detailu a pochopte plný potenciál.
+    </h1>
+    <Button href={"/popular-phase/mediakit1.pdf"} text={"MEDIA KIT"} />
+  </div>
+</section>

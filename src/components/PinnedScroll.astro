@@ -1,0 +1,126 @@
+---
+// src/components/FeatureScroll.astro
+import FeatureImage from "../assets/IPhoneSBannermi.webp"; // Nahraďte cestou k vášmu obrázku
+import CustomSectionHeadline from "./CustomSectionHeadline.astro";
+---
+
+<div class="container mx-auto">
+  <CustomSectionHeadline />
+</div>
+<section class="feature-pin-container text-white py-24">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-24 items-start">
+      <div class="left-column pt-160 pb-40">
+        <div class="text-step min-h-[90vh] flex flex-col justify-center">
+          <h1 class="text-[#592FCB] font-display font-bold text-9xl pb-9">1</h1>
+          <h2
+            class="text-[#120B2C] font-display text-4xl lg:text-5xl font-bold mb-4"
+          >
+            Pozitívne vnímanie značky
+          </h2>
+          <p class="font-inter font-normal text-2xl text-[#120B2C]">
+            Vaša značka je prirodzenou súčasťou platformy, pričom sa
+            používateľom nevnucuje ani neprekáža.
+          </p>
+        </div>
+
+        <div class="text-step min-h-[90vh] flex flex-col justify-center">
+          <h1 class="text-[#592FCB] font-display font-bold text-9xl pb-9">2</h1>
+          <h2
+            class="text-[#120B2C] font-display text-4xl lg:text-5xl font-bold mb-4"
+          >
+            Efektívny zásah reklamy
+          </h2>
+          <p class="font-inter font-normal text-2xl text-[#120B2C]">
+            Platforma úspešne bojuje s bannerovou slepotou a reklama je tu
+            efektívna a ľahko zapamätateľná.
+          </p>
+        </div>
+
+        <div class="text-step min-h-[90vh] flex flex-col justify-center">
+          <h1 class="text-[#592FCB] font-display font-bold text-9xl pb-9">3</h1>
+          <h2
+            class="text-[#120B2C] font-display text-4xl lg:text-5xl font-bold mb-4"
+          >
+            Odlíšenie sa od konkurencie
+          </h2>
+          <p class="font-inter font-normal text-2xl text-[#120B2C]">
+            QUESTIM je ideálna brána do in-game inzercie, vďaka ktorej sa nielen
+            odlíšite od konkurencie, ale efektívne zasiahnete spektrum cieľových
+            skupín.
+          </p>
+        </div>
+      </div>
+
+      <div class="right-column flex items-center">
+        <div id="pinned-image-wrapper" class="w-full">
+          <img
+            src={FeatureImage.src}
+            alt="Popis funkcie"
+            class="h-auto rounded-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* OPRAVA 1: Základný stav pre VŠETKY zariadenia (mobile-first). 
+    Text je plne viditeľný.
+  */
+  .text-step {
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  /* Štýly pre animáciu aplikujeme IBA na väčších obrazovkách, 
+    kde GSAP beží.
+  */
+  @media (min-width: 768px) {
+    /* Tu nastavíme počiatočnú nízku priehľadnosť pre neaktívne texty */
+    .text-step {
+      opacity: 0.25;
+    }
+    /* A definujeme aktívny stav */
+    .text-step.is-active {
+      opacity: 1;
+    }
+  }
+
+  /* OPRAVA 2: Zmazal som pravidlo, ktoré skrývalo .right-column na mobiloch.
+    Teraz sa stĺpec s obrázkom normálne zobrazí pod textom.
+  */
+</style>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let mm = gsap.matchMedia();
+
+    // JavaScript sa nemení, jeho responzívne správanie je správne.
+    mm.add("(min-width: 768px)", () => {
+      // --- 1. ANIMÁCIA PRE PRIPNUTIE OBRÁZKA ---
+      ScrollTrigger.create({
+        trigger: ".feature-pin-container",
+        start: "top top",
+        end: "bottom bottom",
+        pin: "#pinned-image-wrapper",
+      });
+
+      // --- 2. ANIMÁCIA PRE ZMENU TEXTOV ---
+      const textSteps = gsap.utils.toArray(".text-step");
+      textSteps.forEach((step) => {
+        ScrollTrigger.create({
+          trigger: step as HTMLElement,
+          start: "top center",
+          end: "bottom center",
+          toggleClass: "is-active",
+        });
+      });
+    });
+  });
+</script>
