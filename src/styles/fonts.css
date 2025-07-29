@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'Clash Display'; /* Všetky hrúbky budú pod týmto jedným menom */
-  src: url('/popular-phase//fonts/ClashDisplay-Variable.woff2') format('woff2'),
-       url('/popular-phase//fonts/ClashDisplay-Variable.woff') format('woff'),
-       url('/popular-phase//fonts/ClashDisplay-Variable.ttf') format('truetype');
+  src: url('/popular-phase/fonts/ClashDisplay-Variable.woff2') format('woff2'),
+       url('/popular-phase/fonts/ClashDisplay-Variable.woff') format('woff'),
+       url('/popular-phase/fonts/ClashDisplay-Variable.ttf') format('truetype');
   font-weight: 200 700; /* Definuje rozsah dostupných hrúbok */
   font-display: swap;   /* Zabezpečí, že text sa zobrazí systémovým fontom, kým sa načíta vlastný */
   font-style: normal;
