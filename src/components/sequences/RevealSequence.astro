@@ -1,0 +1,89 @@
+---
+// Toto je opravený "režisér".
+---
+
+<section class="reveal-sequence-wrapper">
+  <div class="intro-panel-container">
+    <slot name="intro" />
+  </div>
+  <div class="main-content-container">
+    <slot name="content" />
+  </div>
+</section>
+
+<style>
+  .reveal-sequence-wrapper {
+    position: relative;
+  }
+
+  .intro-panel-container {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .main-content-container {
+    position: relative;
+    z-index: 5;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initSequences = () => {
+    const sequences = document.querySelectorAll(".reveal-sequence-wrapper");
+
+    sequences.forEach((sequence) => {
+      const introPanel = sequence.querySelector(".intro-panel-container");
+      if (!introPanel) return;
+
+      // Na začiatku nastavíme panel mimo obrazovky, ale plne viditeľný (opacity: 1)
+      gsap.set(introPanel, { yPercent: 100, autoAlpha: 1 });
+
+      // JEDNA ČASOVÁ OS, KTORÁ RIADI VŠETKO
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sequence,
+          pin: true, // Prilepí CELÚ sekciu, kým beží animácia
+          scrub: 1, // Hladké prepojenie so skrolovaním
+          start: "top top",
+          // Celková dĺžka skrolovania pre celú animáciu.
+          // Toto číslo môžete meniť, aby bola animácia rýchlejšia/pomalšia.
+          end: "+=2250",
+        },
+      });
+
+      // Pridávame jednotlivé fázy animácie na jednu časovú os:
+      tl
+        // 1. FÁZA: Panel sa zasunie do obrazovky.
+        // Dávame mu duration: 1, čo je pomerná časť celkovej animácie.
+        .to(introPanel, {
+          yPercent: 0,
+          ease: "power1.inOut",
+          duration: 1,
+        })
+
+        // 2. FÁZA: Panel drží na mieste.
+        // Pridáme "prázdnu" animáciu, ktorá zaberie čas (a teda dĺžku skrolovania).
+        // Týmto dosiahneme, že panel zostane viditeľný.
+        // Duration: 2 znamená, že táto fáza bude 2x dlhšia ako zasunutie.
+        .to({}, { duration: 2 })
+
+        // 3. FÁZA: Panel sa zneviditeľní (fade out).
+        // Opäť s duration 1.
+        .to(introPanel, {
+          autoAlpha: 0,
+          ease: "power1.inOut",
+          duration: 1,
+        });
+    });
+  };
+
+  window.addEventListener("load", initSequences);
+</script>

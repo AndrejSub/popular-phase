@@ -5,57 +5,59 @@ import banner3 from "../assets/iphoneEvent1.webp";
 import banner4 from "../assets/banner4.svg";
 ---
 
-<section class="w-full py-60 px-6">
+<section class="w-full py-20 md:py-40 2xl:py-60 px-4 sm:px-6">
   <div
-    class="max-w-screen-xl mx-auto grid grid-cols-12 gap-x-6 gap-y-16 items-start"
+    class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-12 lg:gap-y-16 items-start"
   >
-    <div class="pb-40 col-span-8 pr-1">
+    <!-- Hlavný obsah -->
+    <div class="lg:col-span-8 lg:pr-1">
       <div class="relative text-start justify-start">
         <h2
-          class="text-4xl pb-10 text-start md:text-start md:text-[95px] font-display font-semibold text-slate-900 leading-tight"
+          class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl 2xl:text-[95px] pb-6 md:pb-10 font-display font-semibold text-slate-900 leading-tight"
         >
           BRAND V CENTRE ZÁBAVY
         </h2>
       </div>
 
-      <div
-        class="space-y-10 col-start grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-10"
-      >
-        <div class="flex flex-col md:col-span-6 items-start gap-4">
-          <div class="flex flex-row gap-3">
-            <div
-              class="flex-shrink-0 w-8 h-8 bg-yellow-400 text-slate-900 font-display font-bold flex items-center justify-center rounded-full"
-            >
-              1
+      <div class="space-y-8 md:space-y-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <!-- Banner 1 -->
+          <div class="flex flex-col items-start gap-4">
+            <div class="flex flex-row gap-3">
+              <div
+                class="flex-shrink-0 w-8 h-8 bg-yellow-400 text-slate-900 font-display font-bold flex items-center justify-center rounded-full"
+              >
+                1
+              </div>
+              <h3
+                class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-bold text-slate-900"
+              >
+                REKLAMNÝ BANNER
+              </h3>
             </div>
-            <h3
-              class="text-xl md:text-3xl font-display font-bold text-slate-900"
-            >
-              REKLAMNÝ BANNER
-            </h3>
-          </div>
-          <div>
-            <div class="mt-4 w-58 md:w-full md:max-w-[353px]">
-              <img
-                style="border-radius: 2rem;"
-                src={banner.src}
-                alt="Hero Banner"
-                class="w-full h-auto"
-              />
+            <div>
+              <div
+                class="mt-4 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[353px]"
+              >
+                <img
+                  style="border-radius: 2rem;"
+                  src={banner.src}
+                  alt="Hero Banner"
+                  class="w-full h-auto"
+                />
+              </div>
+            </div>
+            <div class="font-inter font-medium">
+              <p class="pb-2 text-lg md:text-xl">
+                <blesk></blesk>fixná/rotujúca podoba
+              </p>
+              <p class="pb-2 text-lg md:text-xl">
+                <blesk></blesk>custom URL prelink
+              </p>
             </div>
           </div>
-          <div class="font-inter font-medium">
-            <p class="pb-2 text-xl">
-              <blesk></blesk>fixná/rotujúca podoba
-            </p>
 
-            <p class="pb-2 text-xl"><blesk></blesk>custom URL prelink</p>
-          </div>
-        </div>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-1 md:col-span-6 gap-x-8 gap-y-10"
-        >
+          <!-- Banner 2 -->
           <div class="flex flex-col items-start gap-4">
             <div class="flex flex-row gap-3">
               <div
@@ -63,18 +65,19 @@ import banner4 from "../assets/banner4.svg";
               >
                 2
               </div>
-
               <h3
-                class="text-xl md:text-3xl font-display font-bold text-slate-900"
+                class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-bold text-slate-900"
               >
                 ZOZNAM PRODUKTOV
               </h3>
             </div>
             <div>
-              <div class="mt-4 w-58 md:w-full md:max-w-[353px]">
+              <div
+                class="mt-4 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[353px]"
+              >
                 <img
                   src={banner2.src}
-                  alt="Logo Banner "
+                  alt="Logo Banner"
                   class="w-full h-auto"
                 />
               </div>
@@ -83,10 +86,14 @@ import banner4 from "../assets/banner4.svg";
         </div>
       </div>
     </div>
-    <div class="col-span-4">
-      <div class="hidden lg:flex justify-center items-center md:col-row-2">
-        <div class="w-full max-w-sm">
-          <img src={banner3.src} alt="Iphone banner w-full h-auto" />
+
+    <!-- Postranný obrázok -->
+    <div class="lg:col-span-4">
+      <div class="flex justify-center items-center lg:justify-start">
+        <div
+          class="w-full max-w-[270px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-sm"
+        >
+          <img src={banner3.src} alt="Iphone banner" class="w-full h-auto" />
         </div>
       </div>
     </div>

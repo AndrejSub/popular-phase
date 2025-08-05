@@ -7,43 +7,50 @@ import Machula from "../assets/machula.webp";
 ---
 
 <div class="relative">
-  <section class="relative w-full min-h-screen overflow-hidden">
+  <section class="relative w-full overflow-hidden">
     <div
-      class="relative z-10 max-w-screen-xl mx-auto grid grid-cols-1 gap-8 min-h-screen px-6 pt-25 md:pt-0"
+      class="relative z-10 max-w-screen-lg 2xl:max-w-screen-xl mx-auto px-6 pt-16 pb-8 md:pt-20 md:pb-16"
     >
-      <div
-        class="flex flex-col justify-center text-center md:col-span-8 md:text-left"
-      >
+      <!-- Text sekcia -->
+      <div class="text-center md:text-left mb-12 md:mb-16">
         <h1
-          class="text-4xl md:text-8xl text-center font-display font-bold text-slate-900 leading-tight"
+          class="text-4xl text-center md:text-7xl 2xl:text-8xl font-display font-bold text-slate-900 leading-tight"
         >
           Buďte <span class="text-[#592FCB]">viditeľní </span> tak ako nikde inde!
           <span class="inline-block"
-            ><img class="size-12 md:size-24" src={Blesk.src} /></span
+            ><img
+              class="size-12 md:size-16 2xl:size-24"
+              src={Blesk.src}
+              alt="Blesk ikona"
+            /></span
           >
         </h1>
       </div>
 
-      <div class="relative md:col-span-4 min-h-[50vh]">
-        <img
-          src={PhoneMockup.src}
-          alt="Aplikácia v mobile - popredie"
-          class="absolute w-96 pt-10 md:w-[38rem] max-w-none top-1/2 left-1/2 -translate-x-3/5 -translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10"
-        />
+      <!-- Telefón sekcia -->
+      <div class="relative text pt-10 flex justify-center md:justify-center">
+        <div class="relative">
+          <img
+            src={PhoneMockup.src}
+            alt="Aplikácia v mobile - popredie"
+            class="w-80 md:w-96 mr-15 md:mr-40 lg:w-[32rem] 2xl:w-[38rem] max-w-none relative z-10"
+          />
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Pozadie obrázok -->
   <img
     src={Machula.src}
     alt=""
     aria-hidden="true"
     class="absolute
-      -bottom-110
+      -bottom-40 md:-bottom-60 lg:-bottom-80 2xl:-bottom-110
       left-1/2
       -translate-x-1/2
-      w-[100rem]
-      h-[60rem]
+      w-[60rem] md:w-[80rem] lg:w-[100rem]
+      h-[40rem] md:h-[50rem] lg:h-[60rem]
       object-cover
       blur-3xl
       opacity-60

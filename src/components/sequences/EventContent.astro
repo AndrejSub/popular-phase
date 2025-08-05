@@ -1,0 +1,82 @@
+---
+import banner from "../../assets/BannerAdvertising.webp";
+import banner2 from "../../assets/bannerEvent1.webp";
+import banner3 from "../../assets/iphoneEvent1.webp";
+// Predpokladám, že blesk je vaša vlastná komponenta, nechávam ju tak
+// import blesk from '../blesk.astro';
+---
+
+<div class="w-full py-20 px-6">
+  <div
+    class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-16 items-start"
+  >
+    <div class="pb-40 col-span-12 lg:col-span-8 pr-1">
+      <div class="relative text-start justify-start">
+        <h2
+          class="text-4xl pb-10 text-start md:text-[95px] font-display font-semibold text-slate-900 leading-tight"
+        >
+          BRAND V CENTRE ZÁBAVY
+        </h2>
+      </div>
+      <div
+        class="space-y-10 col-start grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10"
+      >
+        <div class="flex flex-col items-start gap-4">
+          <div class="flex flex-row gap-3 items-center">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-yellow-400 text-slate-900 font-display font-bold flex items-center justify-center rounded-full"
+            >
+              1
+            </div>
+            <h3
+              class="text-xl md:text-3xl font-display font-bold text-slate-900"
+            >
+              REKLAMNÝ BANNER
+            </h3>
+          </div>
+          <div class="mt-4 w-full max-w-[353px]">
+            <img
+              style="border-radius: 2rem;"
+              src={banner.src}
+              alt="Reklamný Banner"
+              class="w-full h-auto"
+            />
+          </div>
+          <div class="font-inter font-medium">
+            <p class="pb-2 text-xl"><blesk></blesk>fixná/rotujúca podoba</p><p
+              class="pb-2 text-xl"
+            >
+              <blesk></blesk>custom URL prelink
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col items-start gap-4">
+          <div class="flex flex-row gap-3 items-center">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-[#C0A9FF] text-slate-900 font-bold font-display flex items-center justify-center rounded-full"
+            >
+              2
+            </div>
+            <h3
+              class="text-xl md:text-3xl font-display font-bold text-slate-900"
+            >
+              ZOZNAM PRODUKTOV
+            </h3>
+          </div>
+          <div class="mt-4 w-full max-w-[353px]">
+            <img
+              src={banner2.src}
+              alt="Zoznam produktov"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden lg:flex col-span-4 justify-center items-center">
+      <div class="w-full max-w-sm">
+        <img src={banner3.src} alt="Iphone event" class="w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</div>

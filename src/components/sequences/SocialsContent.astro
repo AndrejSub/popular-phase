@@ -1,23 +1,20 @@
 ---
-import soc1 from "../assets/soc1.webp";
-import soc2 from "../assets/soc2.webp";
-import soc3 from "../assets/soc3.webp";
-import soc4 from "../assets/soc4.webp";
-import soc5 from "../assets/soc5.webp";
+import soc1 from "../../assets/soc1.webp";
+import soc2 from "../../assets/soc2.webp";
+import soc4 from "../../assets/soc4.webp";
 ---
 
-<section class="w-full pt-20 pb-20 md:pb-128 px-6">
+<div class="w-full py-20 px-6">
   <div
-    class="max-w-screen-xl mx-auto grid grid-cols-1 gap-x-12 gap-y-16 items-center"
+    class="max-w-screen-xl mx-auto grid grid-cols-1 gap-x-12 gap-y-16 items-start"
   >
-    <div class="relative flex items-center justify-center">
+    <div class="relative text-center justify-center">
       <h2
-        class="text-4xl text-center md:text-[90px] font-display font-semibold text-slate-900 leading-tight"
+        class="text-4xl text-center md:text-8xl font-display font-bold px-0 md:px-15 bg-gradient-to-r from-[#2C1E67] to-[#8558FF] text-transparent bg-clip-text leading-tight"
       >
         Zviditeľnite sa v našej komunite
       </h2>
     </div>
-
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-3 gap-y-3 items-center">
       <div class="flex justify-center">
         <img src={soc1.src} alt="Logo partnera 1" />
@@ -30,4 +27,4 @@ import soc5 from "../assets/soc5.webp";
       </div>
     </div>
   </div>
-</section>
+</div>

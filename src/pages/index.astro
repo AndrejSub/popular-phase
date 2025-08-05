@@ -24,6 +24,15 @@ import PinnedScroll from "../components/PinnedScroll.astro";
 import Luce2Section from "../components/Luce2Section.astro";
 import PrvyPartner from "../components/PrvyPartner.astro";
 import FloatingComponent from "../components/FloatingComponent.astro";
+import EventContent from "../components/sequences/EventContent.astro";
+import EventIntro from "../components/sequences/EventIntro.astro";
+import HomepageContent from "../components/sequences/HomepageContent.astro";
+import HomepageIntro from "../components/sequences/HomepageIntro.astro";
+import PrizeContent from "../components/sequences/PrizeContent.astro";
+import PrizeIntro from "../components/sequences/PrizeIntro.astro";
+import RevealSequence from "../components/sequences/RevealSequence.astro";
+import SocialsContent from "../components/sequences/SocialsContent.astro";
+import SocialsIntro from "../components/sequences/SocialsIntro.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -53,6 +62,26 @@ import FloatingComponent from "../components/FloatingComponent.astro";
   <!-- <Prize2 /> -->
   <SocialsScroll />
   <Socials1 />
+
+  <!-- <RevealSequence>
+    <HomepageIntro slot="intro" />
+    <HomepageContent slot="content" />
+  </RevealSequence>
+
+  <RevealSequence>
+    <EventIntro slot="intro" />
+    <EventContent slot="content" />
+  </RevealSequence>
+
+  <RevealSequence>
+    <PrizeIntro slot="intro" />
+    <PrizeContent slot="content" />
+  </RevealSequence>
+
+  <RevealSequence>
+    <SocialsIntro slot="intro" />
+    <SocialsContent slot="content" />
+  </RevealSequence> -->
   <Luce2Section />
   <PrvyPartner />
   <FloatingComponent />
