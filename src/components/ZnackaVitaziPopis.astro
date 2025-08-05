@@ -1,7 +1,11 @@
+---
+import Button from "./Button.astro";
+---
+
 <section
-  class="min-h-[30vh] w-full flex items-center justify-center md:pb-40 px-6"
+  class="min-h-[30vh] w-full flex items-center justify-center flex-col pb-15 md:pb-40 px-6"
 >
-  <div class="relative max-w-4xl text-center">
+  <div class="relative max-w-4xl pb-10 text-center">
     <h2
       class="znacka-popis text-2xl md:text-4xl 2xl:text-4xl font-inter font-medium text-slate-800 leading-tight"
     >
@@ -19,6 +23,7 @@
       symbolom zábavy a skutočnej hodnoty.
     </h2>
   </div>
+  <Button href={"/popular-phase/mediakit1.pdf"} text={"MEDIA KIT"} />
 </section>
 
 <script>
