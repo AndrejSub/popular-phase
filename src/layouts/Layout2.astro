@@ -1,0 +1,40 @@
+---
+import Navbar from "../components/Navbar1.astro";
+import pattern from "../assets/moroccan-flower.png";
+import "../styles/global.css";
+import "../styles/fonts.css";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Questim - new standard of mobile phone gaming</title>
+  </head>
+
+  <body
+    class="min-h-screen bg-gradient-to-br from-[#C0A9FF] to-[#592FCB] relative bg-fixed flex flex-col"
+  >
+    <div class="relative z-10 flex-grow">
+      <Navbar />
+      <slot />
+    </div>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  /*
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  */
+</style>

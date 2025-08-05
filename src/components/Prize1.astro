@@ -5,7 +5,7 @@ import banner3 from "../assets/LogoPlusLink.webp";
 import banner4 from "../assets/IphonePrize2.webp";
 ---
 
-<section class="w-full py-20 px-6">
+<!-- <section class="w-full py-20 px-6">
   <div
     class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-16 items-start"
   >
@@ -106,6 +106,116 @@ import banner4 from "../assets/IphonePrize2.webp";
     <div class="lg:flex justify-center col-span-4 items-center">
       <div class="w-full max-w-sm">
         <img src={banner4.src} alt="Iphone banner w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="w-full py-20 px-6">
+  <div
+    class="max-w-screen-xl mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-x-12 gap-y-16 items-start"
+  >
+    <div
+      class="space-y-10 col-start grid grid-cols-1 lg:col-span-8 lg:grid-cols-2 gap-x-8 gap-y-10"
+    >
+      <div class="relative text-start justify-start lg:col-span-2">
+        <h2
+          class="text-4xl text-start md:text-start md:text-7xl 2xl:text-8xl font-display font-semibold pr-0 text-slate-900 leading-tight"
+        >
+          VAŠA ZNAČKA NA PRVOM MIESTE
+        </h2>
+      </div>
+
+      <div class="flex flex-col items-start gap-4">
+        <div class="flex gap-3 flex-row">
+          <div
+            class="flex-shrink-0 w-8 h-8 bg-yellow-400 text-slate-900 font-display font-bold flex items-center justify-center rounded-full"
+          >
+            1
+          </div>
+
+          <h3 class="text-xl md:text-3xl font-display font-bold text-slate-900">
+            SPONZOROVANÝ PRODUKT
+          </h3>
+        </div>
+        <div class="flex flex-col items-start">
+          <div class="mt-4 w-54 md:w-full 2xl:max-w-[305px]">
+            <img
+              style="border-radius: 2rem;"
+              src={banner2.src}
+              alt="Hero Banner"
+              class="w-full h-auto"
+            />
+          </div>
+          <div class="gap-2 font-inter font-medium pt-15">
+            <p class="pb-2 text-xl"><blesk></blesk>produkt z vášho portfólia</p>
+            <p class="text-xl"><blesk></blesk>alebo produkt tretej strany</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-x-8">
+        <div class="flex flex-col items-start pb-10 gap-4">
+          <div class="flex gap-3 flex-row">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-[#C0A9FF] text-[#FFFFFF] font-bold flex items-center justify-center rounded-full"
+            >
+              2
+            </div>
+
+            <h3
+              class="text-xl md:text-3xl font-display font-bold text-slate-900"
+            >
+              LOGO NA OČIACH
+            </h3>
+          </div>
+          <div>
+            <div class="mt-0 md:mt-3 w-54 md:w-full md:max-w-[280px]">
+              <img
+                src={banner3.src}
+                alt="Logo Banner "
+                class="w-full pt-8 h-auto"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-start gap-4">
+          <div class="flex gap-3 flex-row">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-[#592FCB] text-white font-display font-bold flex items-center justify-center rounded-full"
+            >
+              3
+            </div>
+
+            <h3
+              class="text-xl md:text-3xl font-display font-bold text-slate-900"
+            >
+              REKLAMNÝ BANNER
+            </h3>
+          </div>
+          <div>
+            <div class="mt-4 w-54 md:w-full md:max-w-[280px]">
+              <img
+                src={banner.src}
+                alt="Brand Name Banner"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone banner sekcia s upravami pre mobile -->
+    <div
+      class="flex lg:col-span-4 justify-center items-center w-full mt-8 lg:mt-0"
+    >
+      <div class="flex justify-center w-full">
+        <img
+          src={banner4.src}
+          alt="Iphone banner"
+          class="w-full h-auto max-w-[270px] sm:max-w-[330px] md:max-w-[400px] lg:max-w-[380px]"
+        />
       </div>
     </div>
   </div>

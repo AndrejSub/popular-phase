@@ -3,7 +3,6 @@
 
 // Dáta pre zoznam výhod - ľahko ich môžete meniť alebo dopĺňať
 const features = [
-  "ESTE TO NENI DOKONCENE",
   "Event pod vašou značkou",
   "Tournament banner",
   "Prize page advertising",
@@ -15,10 +14,11 @@ const features = [
 // Uistite sa, že máte tieto obrázky v `src/assets/`
 import priceTagPng from "../assets/teraz0.png"; // Nahraďte cestou k vášmu PNG
 import lightningSvg from "../assets/blesk.svg"; // Nahraďte cestou k SVG alebo PNG blesku
+import Footer from "./Footer.astro";
 ---
 
 <section
-  class="relative bg-gradient-to-br from-[#592FCB] to-[#C0A9FF] text-white py-20 sm:py-24 overflow-hidden"
+  class="relative font-display font-semibold text-white py-20 sm:py-24 overflow-hidden"
 >
   <img
     src={lightningSvg.src}
@@ -32,7 +32,7 @@ import lightningSvg from "../assets/blesk.svg"; // Nahraďte cestou k SVG alebo 
   />
 
   <div class="relative container mx-auto px-4 flex flex-col items-center z-10">
-    <p class="font-semibold text-sm uppercase tracking-widest mb-4">
+    <p class="font-semibold text-lg uppercase tracking-widest mb-4">
       Komplet balík
     </p>
 
@@ -53,7 +53,7 @@ import lightningSvg from "../assets/blesk.svg"; // Nahraďte cestou k SVG alebo 
         features.map((feature) => (
           <li class="flex items-center gap-x-3">
             <svg
-              class="w-6 h-6 flex-shrink-0"
+              class="w-6 h-6 bg-[#FFFFFF1C] rounded-4xl flex-shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ import lightningSvg from "../assets/blesk.svg"; // Nahraďte cestou k SVG alebo 
 
     <a
       href="#"
-      class="mt-12 inline-block bg-white text-[#592FCB] font-bold py-4 px-12 rounded-lg uppercase tracking-wider text-sm hover:bg-gray-200 transition-colors duration-300 shadow-lg"
+      class="mt-12 inline-block bg-white text-[#2C1E67] font-bold py-4 px-12 rounded-lg uppercase tracking-wider text-sm hover:bg-gray-200 transition-colors duration-300 shadow-lg"
     >
       Book a call
     </a>
